@@ -35,7 +35,21 @@ $(".saveTask").on("click",function(e){
 });
 
 function refreshTasks(){
+    var taskItemClone = $('.task-item:eq(0)').html();
     $.get( "/php/getAllTasks.php", function( data ) {
+        $.each( data, function( i, item ) {
+            var task_id = "task-"+item.task_id;
+            var task_title = item.task_title;
+            taskItemClone.appendTo( "#task-list" )
+                .find("input").attr({id:task_id,class: task_id})
+                .next("label").attr("for",task_id).text(task_title);
+        });
+
+
+        // var taskItemClone = $('.task-item:eq(0)').clone(true).appendTo("#task-list")
+        //     .removeClass("hidden task-item").addClass("task-" + data.task_id)
+        //     .find("input").attr("ID","task-" + data.task_id);
+
         // $( "body" )
         //     .append( "Name: " + data.name ) // John
         //     .append( "Time: " + data.time ); //  2pm

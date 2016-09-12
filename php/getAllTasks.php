@@ -1,11 +1,12 @@
 <?php
 //connection
 include "conn.php";
+$tasks = array();
 
 $res = $mysqli->query("SELECT * FROM tasks");
 $res->data_seek(0);
 while ($row = $res->fetch_assoc()) {
-    echo " id = " . $row['task_id'] . "\n";
-    echo " title = " . $row['task_title'] . "\n";
+    $tasks[] = $row;
 }
+echo json_encode($tasks);
 ?>
