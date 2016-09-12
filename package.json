@@ -1,0 +1,16 @@
+{
+  "name": "todo-example",
+  "version": "1.0.0",
+  "description": "Example persisting TODO app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hillary M. Watts",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.15.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}
